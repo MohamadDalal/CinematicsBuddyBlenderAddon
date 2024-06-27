@@ -1,0 +1,265 @@
+RECORDING METADATA
+Version: 1.0
+Camera: CameraTest
+Average FPS: 60.07
+Frames: 1
+Duration: 14.98
+
+REPLAY METADATA
+Name: passing
+ID: 29EE0BFB44375C0B29FB038E8CFE7FF2
+Date: 2024-06-23 00-38-22
+FPS: 30
+Frames: 11237
+
+CARS SEEN
+{
+	0:{
+		Back Wheel Radius:15
+		Body:23
+		Front Wheel Radius:12.5
+		ID:PS4|8926597656294137732|0
+	}
+	1:{
+		Back Wheel Radius:15
+		Body:4284
+		Front Wheel Radius:12.5
+		ID:Steam|76561198964540225|0
+	}
+	2:{
+		Back Wheel Radius:15
+		Body:23
+		Front Wheel Radius:12.5
+		ID:Steam|76561198331104054|0
+	}
+	3:{
+		Back Wheel Radius:15
+		Body:23
+		Front Wheel Radius:12.5
+		ID:Steam|76561198211212331|0
+	}
+	4:{
+		Back Wheel Radius:15
+		Body:4284
+		Front Wheel Radius:12.5
+		ID:Steam|76561198114702410|0
+	}
+	5:{
+		Back Wheel Radius:15
+		Body:4284
+		Front Wheel Radius:12.5
+		ID:Epic|19af0905a8a54ab58bdf7969f06dbc2f|0
+	}
+}
+
+EXAMPLE FRAME FORMAT
+FrameNumber:{
+	(B) Ball:{
+		(L) Location:(Vector) X, Y, Z
+		(R) Rotation:(Quat) W, X, Y, Z
+	}
+	(CM) Camera:{
+		(F) FOV:(float - degrees horizontal) Field of view
+		(L) Location:(Vector) X, Y, Z
+		(R) Rotation:(Quat) W, X, Y, Z
+	}
+	(CR) Cars:{
+		(0-7, or player ID) CarsSeenIndex:{
+			(B) IsBoosting:(bool) If player is boosting
+			(L) Location:(Vector) X, Y, Z
+			(R) Rotation:(Quat) W, X, Y, Z
+			(W) Wheels:[
+				(0-3) WheelIndex:{
+					(SA) SteerAmount:(float - radians)
+					(SD) SuspensionDistance:(float - degrees of axle rotation?)
+					(SS) SpinSpeed:(float - radians per second)
+				}
+			]
+		}
+	}
+	(T) Time:{
+		(RF) Replay Frame:(int) Replay timestamp
+		(T) Time:(float) Duration since first frame in seconds
+	}
+}
+
+BEGIN ANIMATION
+0:{
+	B:{
+		L:-2730.27,-3712.63,982.26
+		R:0.81411,-0.25174,0.03422,-0.52219
+	}
+	CM:{
+		F:113.86
+		L:-2764.57,-1722.68,238.04
+		R:0.74122,0.01624,0.01795,-0.67083
+	}
+	CR:{
+		0:{
+			B:0
+			L:-1855.66,-4583.60,91.38
+			R:0.23473,-0.06407,0.95537,-0.16754
+			W:[
+				0:{
+					SA:0
+					SD:12
+					SS:74.40
+				}
+				1:{
+					SA:0
+					SD:12
+					SS:78.57
+				}
+				2:{
+					SA:0
+					SD:12
+					SS:61.90
+				}
+				3:{
+					SA:0
+					SD:12
+					SS:65.86
+				}
+			]
+		}
+		1:{
+			B:0
+			L:-1555.74,3780.88,17
+			R:0.75695,0.00313,0.00363,-0.65346
+			W:[
+				0:{
+					SA:-0.12
+					SD:-1.98
+					SS:133.33
+				}
+				1:{
+					SA:-0.12
+					SD:-1.98
+					SS:145.50
+				}
+				2:{
+					SA:0
+					SD:-1.96
+					SS:112.55
+				}
+				3:{
+					SA:0
+					SD:-1.97
+					SS:124.17
+				}
+			]
+		}
+		2:{
+			B:0
+			L:-2452.17,-4249.27,256.00
+			R:0.42526,0.46812,-0.24134,0.73605
+			W:[
+				0:{
+					SA:0
+					SD:12
+					SS:51.82
+				}
+				1:{
+					SA:0
+					SD:12
+					SS:51.82
+				}
+				2:{
+					SA:0
+					SD:12
+					SS:43.18
+				}
+				3:{
+					SA:0
+					SD:12
+					SS:43.18
+				}
+			]
+		}
+		3:{
+			B:0
+			L:-643.46,-4776.59,17
+			R:0.36713,-0.00441,0.00174,0.93016
+			W:[
+				0:{
+					SA:0
+					SD:-1.99
+					SS:78.04
+				}
+				1:{
+					SA:0
+					SD:-1.98
+					SS:78.15
+				}
+				2:{
+					SA:0
+					SD:-1.98
+					SS:65.03
+				}
+				3:{
+					SA:0
+					SD:-1.98
+					SS:65.13
+				}
+			]
+		}
+		4:{
+			B:0
+			L:-2741.52,-1954,65
+			R:0.76032,-0.12897,-0.19510,0.60599
+			W:[
+				0:{
+					SA:0
+					SD:12
+					SS:80
+				}
+				1:{
+					SA:0
+					SD:12
+					SS:80
+				}
+				2:{
+					SA:0
+					SD:12
+					SS:66.67
+				}
+				3:{
+					SA:0
+					SD:12
+					SS:66.67
+				}
+			]
+		}
+		5:{
+			B:0
+			L:-2772.08,-1073.47,16.97
+			R:0.70940,0.00334,0.00337,-0.70479
+			W:[
+				0:{
+					SA:0
+					SD:-1.98
+					SS:103.17
+				}
+				1:{
+					SA:0
+					SD:-1.96
+					SS:105.37
+				}
+				2:{
+					SA:0
+					SD:-1.96
+					SS:85.85
+				}
+				3:{
+					SA:0
+					SD:-1.95
+					SS:87.95
+				}
+			]
+		}
+	}
+	T:{
+		RF:711
+		T:0
+	}
+}

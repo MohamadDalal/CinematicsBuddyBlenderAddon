@@ -47,7 +47,7 @@ class OBJECT_OT_BakkesCinBuddy_load_file(bpy.types.Operator):
             if ballObj is None:
                 ballScene = bpy.ops.import_scene.fbx( filepath =  str(addon_path / "models/BallProxy.FBX"))
                 ballObj = bpy.data.objects["RL_BALL_PROXY"]
-                ballObj.rotation_mode = 'QUATERNION'
+            ballObj.rotation_mode = 'QUATERNION'
             # Source: https://www.youtube.com/watch?v=uDtEkjbD_-g&ab_channel=CGPython and Copilot
             cameraObj = bpy.data.objects.get(recordingMetadata.cameraName, None)
             if cameraObj is not None:
@@ -60,6 +60,18 @@ class OBJECT_OT_BakkesCinBuddy_load_file(bpy.types.Operator):
             cameraData.lens_unit = 'MILLIMETERS'
             cameraData.lens = frames[0]["CM"]["F"]
             cameraObj.name = recordingMetadata.cameraName
+
+            carObjs = []
+            for i in range(recordingMetadata.numCars):
+                carObj = bpy.data.objects.get(f"RL_OCTANE_PROXY_{i}", None)
+                if carObj is None:
+                    bpy.ops.import_scene.fbx(filepath = str(addon_path / "models/OctaneProxy.FBX"))
+                    carObj = bpy.data.objects["RL_OCTANE_PROXY"]
+                    carObj.name = f"RL_OCTANE_PROXY_{i}"
+                carObj.rotation_mode = 'QUATERNION'
+                carObjs.append(carObj)
+            #print(carObjs)
+            
             for frame_num, frame in enumerate(frames):
                 ballObj.location = frame["B"]["L"]
                 ballObj.rotation_quaternion = frame["B"]["R"]
@@ -76,9 +88,18 @@ class OBJECT_OT_BakkesCinBuddy_load_file(bpy.types.Operator):
                 cameraObj.keyframe_insert(data_path="location", frame=frame_num)
                 cameraObj.keyframe_insert(data_path="rotation_euler", frame=frame_num)
                 cameraData.keyframe_insert(data_path="lens", frame=frame_num)
+                for i, car in enumerate(carObjs):
+                    # TODO: Fix car rotation
+                    car.location = frame["CR"][i]["L"]
+                    car.rotation_quaternion = [1,0,0,0]
+                    #car.rotation_quaternion = frame["CR"][i]["R"]
+                    car.keyframe_insert(data_path="location", frame=frame_num)
+                    #car.keyframe_insert(data_path="rotation_quaternion", frame=frame_num)
+                # TODO: Use time data to properly set frames
+                    
             return {'FINISHED'}
         except Exception as e:
-            #raise(e)
+            raise(e)
             print("Failed to open file")
             return {'CANCELLED'}
     
